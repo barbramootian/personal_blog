@@ -1,0 +1,27 @@
+<!-- {%macro alldisplays(alldatas)%}
+<div class="container-fluid ">
+  {%for data in alldatas%}
+  <div class="card"style="width: 40rem;">
+    <div class="card-body id=pitch">
+      <h1 class="card-title">Title: {{data.title}}<br> </h1>
+      <h2 class="card-subtitle mb-2 text-muted"> Category: {{data.category}}<br></h2>
+      <p class="card-text"> Content:{{data.content}}</p>
+      <hr>
+    <button class="btn btn-info">
+        <a href="{{url_for('main.like',id = data.id)}}">
+          <i class="fa fa-thumbs-up"></i> Upvote {{data.likes.count()}}</a>
+      </button>
+      <button class="btn btn-info">
+        <a href="{{url_for('main.dislike',id = data.id)}}">
+          <i class="fa fa-thumbs-down"></i> Downvote {{data.dislikes.count()}}</a>
+      </button>
+      
+      <button class="btn btn-info">
+        <a href="{{url_for('main.comment',id = data.id)}}"> Comment</a>
+      </button>
+    </div>
+  </div>
+    {%endfor%}
+</div>
+
+{%endmacro%} -->

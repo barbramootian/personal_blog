@@ -1,0 +1,31 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="font-size: 20px;">Personal Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mt-4 mt-lg-0">
+          <li class="nav-item px-5">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item px-5">
+            <li><a href="{{url_for('main.post')}}" px-5>New Post</a></li>
+          </li>
+          {%else%}
+          <li class="nav-item px-5">
+            <li><a href="">Profile</a></li>
+          </li>
+          <li class="nav-item px-5">
+            <li><a href="{{url_for('auth.register')}}" px-5>Sign Up </a></li>
+          </li>
+          <li class="nav-item px-5">
+            <li><a href="{{url_for('auth.login')}}" px-5>Sign In</a></li>
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </nav> -->
