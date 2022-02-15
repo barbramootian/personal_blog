@@ -1,18 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&family=Roboto:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 * {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-	font-size: 25px;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 1000;
+	font-size: 30px;
 }
 *{
 	padding: 0px;
 	margin: 0px;
 }
+.body {
+    background-image: url(../images/babi.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    opacity: 0.9;
+}
 body{
-	background-color: #dbeefa;
+	background-color: #F1C9A4;
+
 }
 ul {
     list-style: none;
     padding: 0;
 }
-
+.post-title{
+    color: black;
+    font-weight: bold;
+}
+i{
+    color: black;
+}
+.app__bio .name {
+    font-size: 50px;
+    color: #C59D5F;
+  }
+  .app__bio h1{
+    display: block;
+    color: transparent;
+    position: relative;
+    text-align: center;
+  }
+  .app__bio h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #C59D5F;
+    border-radius: 20px;
+    animation-delay: .5s;
+    margin-top: 300px;
+  }
+  .quote {
+    text-align: center;
+    margin-top: 250px;
+    font-size: 20px;
+    color: #ffffff;
+  }.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  button a{
+    text-decoration: none;
+    color: white;
+  }
+  .port{
+    margin-top: 300px;
+    height: 55px;
+    width: 150px;
+    border: none;
+    background-color: transparent;
+    box-shadow: 3px 4px solid white;
+    border-radius: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #C59D5F;
+  }
+  .port a{
+    text-decoration: none;
+    color: #C59D5F;
+  }
+  .port:hover{
+    background-color: #C59D5F;
+    cursor: pointer;
+    transition: 1.5s;
+    color: white;
+  }
