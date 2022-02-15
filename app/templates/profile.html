@@ -1,9 +1,41 @@
-<!-- {%extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf%} 
-{%block content%}
-    <div class="container">
-    <h2 class="text-center">PROFILE  PAGE </h2>
-    {{wtf.quick_form(profile_form)}}
-    <p>
-    </p>
+{%extends 'base.html'%} {%block content%}
+<div class="container profile">
+    <div class="row">
+      <div class="col-md-3">
+        {%if user.profile_pic_path%}
+        <img
+          src="{{url_for('static',filename=user.profile_pic_path)}}"
+          alt=""
+          class="img-thumbnail"
+        />
+        {%else%}
+   <h3>No Profile Picture Found</h3>
+        {%endif%}
+        <h2>{{user.username| capitalize}}</h2>
+        {% if user == current_user %}
+        <form
+          action="{{url_for('main.update_image',my_name=user.username)}}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <input type="file" name="photo" class="form-control" required />
+          <br />
+          <input class="btn btn-info" type="submit" />
+        </form>
+        {% endif %}
     </div>
-    {%endblock%}  -->
+    <div class="col-md-3">
+      {%if user.bio%}
+      <p>{{user.bio}}</p>
+      {%else%}
+      <p>{{user.username}} has no biography yet</p>
+      {%endif%} {% if user == current_user %}
+      <button class="btn btn-info btn-lg">
+        <a href="{{url_for('main.edit_profile',my_name=user.username)}}">Edit Profile</a>
+      </button>
+      {% endif %}
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+</div>
+{%endblock%}
