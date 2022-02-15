@@ -1,0 +1,29 @@
+{% extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf %} {% block
+    content %}
+    <div class="container comments">
+      <div class="row">
+        {% if all_comments %}
+        <div class="col-md-7">
+          <h3 class="text"><u>All comments for the post</u></h3>
+          {% for comment in all_comments %}
+          <div class="card w-90 mb-3">
+            <div class="card-body">
+                <h5>{{comment.title}}</h5>
+                <p class="card-title">{{ comment.comment }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="col-md-5 commentform">{{wtf.quick_form(comment_form)}}</div>
+        </div>
+        {%else%}   
+        <div class="card w-90 mb-3">
+            <div class="card-body">
+              <p class="card-title">No Available Comments</p>
+            </div>
+          </div>
+          <div class="col-md-5">{{wtf.quick_form(comment_form)}}</div>
+          {%endif%}
+        </div>
+        
+        {% endblock%}         
