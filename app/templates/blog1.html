@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{% import 'macro.html' as macro%}
+<!-- Styles block -->
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+<!-- Content block -->
+{% block content %}
+<div class="text-center mt-4" >
+<div class="container-fluid">
+    <div class="col-md-8 ">
+        {% for post in posts %}
+        <div class="body-content mt-3">
+            Post Title: 
+            <a href="{{url_for('main.comment',id = post.id)}}">{{post.title}}</a>
+            <h3 class="subtitle"> Post Category: {{post.category}}</h3>
+            <h4 class="subtitle"> Post Content: {{post.content}}</h4>
+            <h5 class="post-name">Posted by ~ {{post.user_id}}</h5>
+            <h6 class="date text-muted">Posted on ~ {{post.created_at}}</h6>
+            <hr>
+        </div>
+        {% endfor %}
+   </div>
+</div>
+</div>
+{% endblock%}

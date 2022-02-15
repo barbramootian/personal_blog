@@ -45,6 +45,14 @@ def blog():
     '''View root page function that returns the index page and its data'''
     return render_template('blog.html',posts=received_posts,quote=quote,pickup=pickup,interview=interview,product=product,promotion=promotion) 
 
+@main.route("/blog1")
+@login_required
+def blog1():
+    received_posts = Post.query.order_by(Post.created_at.desc()).all()
+    
+    '''View root page function that returns the index page and its data'''
+    return render_template('blog1.html',posts=received_posts) 
+
 @main.route('/profile/<my_name>')
 @login_required
 def profile(my_name):
@@ -90,9 +98,27 @@ def comment(id):
     fetch_all_comments = Comment.query.filter_by(post_id=id).all()
     if comment_form.validate_on_submit():
         comment = comment_form.comment.data
-        p_id = id
+        post_id = id
         user_id = current_user._get_current_object().id
-        new_comment = Comment(comment=comment, user_id=user_id, post_id=p_id)
+        new_comment = Comment(comment=comment, user_id=user_id, post_id=post_id)
         new_comment.save_comment()
-        return redirect(url_for('.comment', id=p_id))
+        return redirect(url_for('.comment', id=post_id))
     return render_template('comment.html', comment_form=comment_form, post=post, all_comments=fetch_all_comments)
+
+@main.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    results= Post.query.get(id)
+    if request.method == 'POST':
+        results.title = request.form['title']
+        results.category = request.form['category']
+        results.content = request.form['content']
+        db.session.commit()
+        return redirect(url_for(".blog"))
+    return render_template("edit.html", res=results) 
+
+@main.route('/delete/<id>', methods=["GET", "POST"])
+def delete(id):
+    data = Post.query.get(id)
+    db.session.delete(data)
+    db.session.commit()
+    return redirect(url_for(".blog"))    

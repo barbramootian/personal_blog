@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container">
+    <form action="{{url_for('main.edit',id=res.id)}}" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label >Post Title</label>
+          <input type="text" name="title"  class="form-control" value='{{res.title}}' placeholder="my post title" required>
+      </div>
+      <div class="form-group">
+    <label >Post Category</label>
+     <select class="form-control" name="category" value='{{res.category}}'>
+         <option value="">Select post category</option>
+         <option value="love" {%  if res.category =="love" %}selected {%endif%}>Love</option>
+         <option value="sport" {%  if res.category =="sport" %}selected {%endif%} > Sport</option>
+         <option value="entertainment" {%  if res.category =="entertainment" %}selected {%endif%} >Entertainment</option>
+         <option value="travel" {%  if res.category =="travel" %}selected {%endif%} >Travel</option>
+         <option value="coding" {%  if res.category =="coding" %}selected {%endif%} >Coding</option>
+     </select>
+ </div>
+  <div class="form-group">
+    <label >Post Content</label>
+  <textarea name="content"  class="form-control" >{{res.content}}</textarea>
+  </div>
+  <div class="form-group">
+        <input type="submit" class="btn btn-primary" name="post" value="Update" required>
+    </div>
+  </form>
+</div>
+{%endblock%}
+   
+
