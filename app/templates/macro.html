@@ -1,4 +1,4 @@
-<!-- {%macro alldisplays(alldatas)%}
+{%macro alldisplays(alldatas)%}
 <div class="container-fluid ">
   {%for data in alldatas%}
   <div class="card"style="width: 40rem;">
@@ -15,13 +15,9 @@
         <a href="{{url_for('main.dislike',id = data.id)}}">
           <i class="fa fa-thumbs-down"></i> Downvote {{data.dislikes.count()}}</a>
       </button>
-      
-      <button class="btn btn-info">
-        <a href="{{url_for('main.comment',id = data.id)}}"> Comment</a>
-      </button>
     </div>
   </div>
     {%endfor%}
 </div>
 
-{%endmacro%} -->
+{%endmacro%}
