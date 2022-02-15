@@ -2,22 +2,23 @@
 {% import 'macro.html' as macro%}
 <!-- Styles block -->
 {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 <!-- Content block -->
 {% block content %}
- <div class="container-fluid">
-    <h2> Author: {{quote.author}}</h2>
-    <h3> Id: {{quote.id}}</h3>
-    <p> Quote: {{quote.quote}}</p>
- </div>
- <div class="container">
-     {% for post in posts%}
-     {{post.title}}
-     {{post.category}}
-     {{post.content}}
-     {% endfor %}
- </div>
+<div class="body text-center mt-4" >
+    <div class="app__bio">
+        <h1 class='name'>Welcome To Barbie's Blog </h1>
+    </div>
+<div class='quote'>
+    <q>Success is no accident.It is hard work,perseverance,learning
+     studing,sacrifice and most of all,love of what you are doing or learning to do. </q>
+    <br><br>
+    <i>By Barbra Reson Mootian</i>
+</div>
+<div class="button">
+<a href="{{url_for('main.blog')}}"><button class="port">Blogs</button></a>
+</div>
+</div>
 {% endblock%}
-
